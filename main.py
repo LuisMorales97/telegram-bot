@@ -4,7 +4,7 @@ from telegram.ext import *
 import responses
 
 ###API KEY - BotFather Telegram ####
-API_KEY = '###' #Agregar API KEY
+API_KEY = '###' #Agregar API KEY'
 
 #Login
 
@@ -27,9 +27,10 @@ def custom_command(update, context):
 def handle_message(update, context):
     text = str(update.message.text).lower()
     logging.info(f'User ({update.message.chat.id}) says: {text}')
+    response = responses.get_response(text)
 
     #Bot Response
-    update.message.reply_text(text)
+    update.message.reply_text(response)
 
 #Respuesta ante error
 
